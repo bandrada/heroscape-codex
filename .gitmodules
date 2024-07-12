@@ -1,0 +1,3 @@
+[submodule "heroscape-data"]
+	path = heroscape-data
+	url = https://github.com/bandrada/heroscape-data

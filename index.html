@@ -6,11 +6,16 @@
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="description" content="" />
         <link rel="icon" href="favicon.png">
+        <script src="https://unpkg.com/htmx.org"></script>
+        <script src="https://unpkg.com/htmx.org@1.9.12/dist/ext/client-side-templates.js"></script>
+        <script src="https://unpkg.com/mustache@latest"></script>
     </head>
     <body>
-        <script src="./index.js"></script>
         <table class="characters">
-            <tbody>
+            <tbody hx-get="/heroscape-data/units.json"
+                hx-trigger="load"
+                hx-swap="innerHTML"
+                mustache-array-template="row-template">
                 <tr>
                     <th <b>Name</b></th>
                     <th <b>Leader</b></th>
@@ -45,57 +50,27 @@
                     <td>Fire Line Special Attack, Flying</td>
                     <td>Rise of the Valkyrie</td>
                 </tr>
-                <tr>
-                    <td>Finn the Viking Champion</td>
-                    <td>Jandar</td>
-                    <td>Human</td>
-                    <td>Unique Hero</td>
-                    <td>Champion</td>
-                    <td>Valiant</td>
-                    <td>Medium 5</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>80</td>
-                    <td>Attack Aura 1, Warrior's Attack Spirit 1</td>
-                    <td>Rise of the Valkyrie</td>
-                </tr>
-                <tr>
-                    <td>Thorgrim the Viking Champion</td>
-                    <td>Jandar</td>
-                    <td>Human</td>
-                    <td>Unique Hero</td>
-                    <td>Champion</td>
-                    <td>Valiant</td>
-                    <td>Medium 5</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>80</td>
-                    <td>Defensive Aura 1, Warrior's Armor Spirit 1</td>
-                    <td>Rise of the Valkyrie</td>
-                </tr>
-                <tr>
-                    <td>Tarn Viking Warriors</td>
-                    <td>Jandar</td>
-                    <td>Human</td>
-                    <td>Unique Squad</td>
-                    <td>Warriors</td>
-                    <td>Wild</td>
-                    <td>Medium 5</td>
-                    <td>1</td>
-                    <td>4</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>50</td>
-                    <td>Berserker Charge</td>
-                    <td>Rise of the Valkyrie</td>
-                </tr>
+                <template id="row-template">
+                    {{#data}}
+                    <tr>
+                        <td>{{Name}}</td>
+                        <td>{{Name}}</td>
+                        <td>{{Name}}</td>
+                        <td>{{Name}}</td>
+                        <td>{{Name}}</td>
+                        <td>{{Name}}</td>
+                        <td>{{Name}}</td>
+                        <td>{{Name}}</td>
+                        <td>{{Name}}</td>
+                        <td>{{Name}}</td>
+                        <td>{{Name}}</td>
+                        <td>{{Name}}</td>
+                        <td>{{Name}}</td>
+                        <td>{{Name}}</td>
+                        <td>{{Name}}</td>
+                    </tr>
+                    {{/data}}
+                </template>
             </tbody>
         </table>
     </body>
